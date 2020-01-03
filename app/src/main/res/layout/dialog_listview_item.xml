@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:descendantFocusability="blocksDescendants">
+
+    <CheckBox
+        android:id="@+id/dialog_checkBox_item"
+        android:clickable="false"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:button="@null"
+        android:background="@drawable/checkbox_btn_selector"/>
+
+    <TextView
+        android:id="@+id/tv_dialog_listview_item"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="30dp"
+        android:text="标题"
+        android:textColor="@color/colorAccent"
+        android:textSize="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_dialog_remark"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="60dp"
+        android:text="[备注]"
+        android:textColor="@color/grey_9"
+        android:textSize="16dp"/>
+
+</LinearLayout>

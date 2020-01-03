@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_width="140dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/bg_popup"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/layout_record"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/iv_record"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp" />
+            <TextView
+                android:id="@+id/tv_record"
+                android:layout_toRightOf="@+id/iv_record"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18" />
+        </RelativeLayout>
+        <View
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"
+            android:background="@color/white" />
+        <RelativeLayout
+            android:id="@+id/layout_statistics"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/iv_statistics"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp" />
+            <TextView
+                android:id="@+id/tv_statistics"
+                android:layout_toRightOf="@+id/iv_statistics"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

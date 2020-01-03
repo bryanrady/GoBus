@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_55"
+    android:background="@drawable/layout_click_item_selector">
+
+    <TextView
+        android:id="@+id/tv_emergency_rescue_item_name"
+        android:layout_width="@dimen/dp_155"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_centerVertical="true"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:textSize="@dimen/sp_16"/>
+
+    <TextView
+        android:id="@+id/tv_emergency_rescue_item_phone"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey_6"
+        android:textSize="@dimen/sp_16"/>
+    <TextView
+        android:id="@+id/tv_emergency_rescue_item_call"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_23"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:layout_marginRight="@dimen/dp_10"
+        android:background="@drawable/btn_frame_filling_green"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12" />
+
+</RelativeLayout>

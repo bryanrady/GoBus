@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hxd.gobus.views.SideSlipMenuItemView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_50"
+    android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout_right"
+            android:layout_toRightOf="@+id/layout_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_slide_item_setting"
+                android:layout_height="match_parent"
+                android:layout_width="@dimen/dp_100"
+                android:gravity="center"
+                android:background="@color/yellow"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="设 置" />
+
+            <TextView
+                android:id="@+id/tv_slide_item_delete"
+                android:layout_height="match_parent"
+                android:layout_width="@dimen/dp_100"
+                android:gravity="center"
+                android:background="@color/red"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="删 除"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_slide_item_read"
+                android:layout_height="match_parent"
+                android:layout_width="@dimen/dp_100"
+                android:gravity="center"
+                android:background="@color/green"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="标记已读"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_left"
+            android:layout_weight="1"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:background="@drawable/layout_click_item_selector">
+            <!-- 布局文件非常重要 android:background="@drawable/content_white"
+             这下面一定要 layout_width="0dp"然后layout_weight = 1 -->
+            <!--<TextView-->
+            <!--android:id="@+id/tv_recycler_item_title"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="@dimen/dp_0"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center" />-->
+
+            <TextView
+                android:id="@+id/tv_maintain_record_item_license"
+                android:layout_width="@dimen/dp_110"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/colorAccent"/>
+
+            <TextView
+                android:id="@+id/tv_maintain_record_item_apply_date"
+                android:layout_toRightOf="@+id/tv_maintain_record_item_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/grey_6"/>
+
+            <TextView
+                android:id="@+id/tv_maintain_record_item_get_car_status"
+                android:layout_toRightOf="@+id/tv_maintain_record_item_apply_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_40"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/grey_9"/>
+
+            <ImageView
+                android:id="@+id/iv_maintain_record_item_approval_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_20" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</com.hxd.gobus.views.SideSlipMenuItemView>

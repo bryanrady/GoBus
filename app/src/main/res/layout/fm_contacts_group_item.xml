@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_contacts_item_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textSize="@dimen/sp_14"
+        android:background="@color/ghost_white"
+        android:text="A"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants">
+        <android.support.v7.widget.AppCompatCheckBox
+            android:focusable="false"
+            android:id="@+id/delete_checkbox"
+            android:theme="@style/MyCheckBox"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true" />
+        <!--<CheckBox-->
+            <!--android:focusable="false"-->
+            <!--android:id="@+id/delete_checkbox"-->
+            <!--android:theme="@style/MyCheckBox"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true" />-->
+        <com.hxd.oasynergy.views.CircleImageView
+            android:id="@+id/iv_my_head"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/delete_checkbox"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/jmui_conv_head_icon" />
+        <LinearLayout
+            android:layout_toRightOf="@+id/iv_my_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_contacts_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="张三"
+                android:layout_weight="1"
+                android:textColor="@color/grey_6"
+                android:textSize="@dimen/sp_16"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:id="@+id/tv_contacts_item_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="海外事业部"
+                android:textColor="@color/grey_9"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginTop="5dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

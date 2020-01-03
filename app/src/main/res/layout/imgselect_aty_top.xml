@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#21282C">
+
+    <ImageView
+        android:id="@+id/iv_imgselect_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingLeft="16dp"
+        android:src="@drawable/toolbar_back_selector"/>
+
+    <View
+        android:id="@+id/imgselect_line"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:layout_toRightOf="@+id/iv_imgselect_back"
+        android:background="#000000"/>
+
+    <TextView
+        android:id="@+id/tv_imgselect_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/imgselect_line"
+        android:text="所有图片"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/btn_imgselect_commit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/imgselector_commit_bg"
+        android:minHeight="1dp"
+        android:minWidth="1dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:text="完成"
+        android:textColor="#666"
+        android:textSize="14sp"/>
+
+</RelativeLayout>

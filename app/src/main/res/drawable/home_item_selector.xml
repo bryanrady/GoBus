@@ -1,0 +1,5 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/home_item_default" android:state_pressed="false"></item>
+    <item android:drawable="@drawable/home_item_pressed" android:state_pressed="true"></item>
+</selector>

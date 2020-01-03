@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#E8EDF3"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_49"
+        android:background="@color/colorPrimary">
+
+        <ImageButton
+            android:id="@+id/return_btn"
+            android:layout_width="@dimen/dp_49"
+            android:layout_height="match_parent"
+            android:background="@drawable/jmui_back_btn_bg"
+            android:onClick="returnBtn"
+            android:src="@mipmap/back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_toRightOf="@id/return_btn"
+            android:text="设置"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_18"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="sendBusinessCard">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_14"
+                android:layout_marginTop="@dimen/dp_12"
+                android:text="发送名片"
+                android:textColor="#2C2C2C"
+                android:textSize="@dimen/sp_16"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_14"
+                android:src="@mipmap/arrow"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_5"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:layout_marginStart="@dimen/dp_14"
+            android:background="#D9D9D9"/>
+
+        <RelativeLayout
+            style="@style/SettingItemStyle">
+
+            <TextView
+                style="@style/info_left_style"
+                android:text="加入黑名单"/>
+
+            <com.hxd.gobus.chat.view.SlipButton
+                android:id="@+id/btn_addBlackList"
+                android:layout_width="@dimen/dp_46"
+                android:layout_height="@dimen/dp_25"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_14"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

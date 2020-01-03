@@ -1,0 +1,50 @@
+<RelativeLayout
+    android:id="@+id/content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000">
+
+    <com.hxd.gobus.chat.utils.imagepicker.view.ViewPagerFixed
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include
+        android:id="@+id/top_bar"
+        layout="@layout/include_top_bar"/>
+
+    <RelativeLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_alignParentBottom="true"
+        android:background="#cc22292c"
+        android:visibility="gone">
+
+        <com.hxd.gobus.chat.utils.imagepicker.view.SuperCheckBox
+            android:id="@+id/cb_origin"
+            android:visibility="invisible"
+            style="@style/SuperCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:paddingLeft="@dimen/dp_8"
+            android:text="原图(3.07M)"
+            android:textColor="#FFF"/>
+
+        <com.hxd.gobus.chat.utils.imagepicker.view.SuperCheckBox
+            android:id="@+id/cb_check"
+            style="@style/SuperCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_12"
+            android:drawablePadding="@dimen/dp_4"
+            android:includeFontPadding="true"
+            android:paddingLeft="@dimen/dp_8"
+            android:text="选择"
+            android:textColor="#ffffff"/>
+    </RelativeLayout>
+</RelativeLayout>

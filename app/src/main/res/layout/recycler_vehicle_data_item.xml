@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/dp_10"
+    android:paddingBottom="@dimen/dp_10"
+    android:background="@drawable/layout_click_item_selector">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="@dimen/dp_75"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_vehicle_data_item_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/green"
+                android:textSize="@dimen/sp_14"/>
+            <TextView
+                android:id="@+id/tv_vehicle_data_item_life"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textColor="@color/grey_6"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_width="@dimen/dp_75"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_vehicle_data_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/grey_6"
+                android:textSize="@dimen/sp_14"/>
+            <TextView
+                android:id="@+id/tv_vehicle_data_item_electricity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textColor="@color/grey_6"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_vehicle_data_item_charging_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/grey_9"
+                android:textSize="@dimen/sp_14"/>
+            <TextView
+                android:id="@+id/tv_vehicle_data_item_full"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/dp_10"
+                android:gravity="center"
+                android:textColor="@color/grey_6"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_vehicle_data_item_location"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_23"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:layout_marginRight="@dimen/dp_10"
+        android:background="@drawable/btn_frame_green"
+        android:text="详 情"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/sp_12" />
+
+</RelativeLayout>

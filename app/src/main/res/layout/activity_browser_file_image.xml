@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/image_browser_view"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/choose_file_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_49"
+        android:background="#000000">
+
+        <ImageButton
+            android:id="@+id/return_btn"
+            android:layout_width="@dimen/dp_49"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="#000"
+            android:src="@mipmap/back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/return_btn"
+            android:text="聊天文件"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_18"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_file_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_14"
+            android:background="@drawable/pictures_select_icon"
+            android:button="@null"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/check_box_rl"
+        android:layout_below="@+id/title_bar_rl">
+
+        <com.hxd.gobus.chat.view.ImgBrowserViewPager
+            android:id="@+id/img_browser_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,5 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@mipmap/audit_down_arrow_default" android:state_pressed="false"></item>
+    <item android:drawable="@mipmap/audit_down_arrow_pressed" android:state_pressed="true"></item>
+</selector>

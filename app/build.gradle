@@ -1,0 +1,166 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-aspectjx'    //Aspect
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.hxd.oasynergytest"
+    //    applicationId "com.hxd.gobus"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 3
+        versionName "1.3"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+
+        //后面记得改这里 现在先编译
+        manifestPlaceholders=[
+                JPUSH_PKGNAME:"com.hxd.gobus",
+                XIAOMI_APPKEY:"MI-5991787269862",
+                XIAOMI_APPID:"MI-2882303761517872862",
+                HUAWEI_APPID:"100437167",
+                MEIZU_APPKEY:"MZ-c3f793de4f4f461cad925d3ba4142c56",
+                MEIZU_APPID:"MZ-115979",
+        ]
+    }
+
+    // 移除lint检查的error
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            //是否zip对齐
+            zipAlignEnabled false
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            java.srcDirs = ['src/main/java', 'src/main/java-gen']
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    compileOptions {//使用JAVA8解析  invokedynamic requires --min-sdk-version >= 26
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+greendao {
+    schemaVersion 1 //数据库版本
+    targetGenDir 'src/main/java' //指定生成代码的目录
+    daoPackage 'com.hxd.gobus.greendao'//生成代码到具体包下
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28+'
+    implementation 'com.android.support:support-v4:28+'
+    implementation 'com.android.support:design:28+'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //butterknife
+    implementation 'com.jakewharton:butterknife:9.0.0-rc2'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc2'
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //universalimageloader
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    //activeandroid
+    implementation 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+    //greendao
+    implementation 'org.greenrobot:greendao:3.2.2'
+    //eventbus
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    //retrofit+okhttp+gson
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation 'com.google.code.gson:gson:2.4'
+    //rxjava
+    implementation "io.reactivex.rxjava2:rxjava:2.1.14"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    //dagger2针对Android的库，如果你使用Android的开发方式，仅依赖这几个
+    implementation 'com.google.dagger:dagger-android:2.17'
+    implementation 'com.google.dagger:dagger-android-support:2.17'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.17'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.17'
+    //leakcanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+    //BottomNavigationBar 底部导航栏
+    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.2'
+    //拼音库
+    implementation 'com.belerweb:pinyin4j:2.5.1'
+    //RecyclerView Adapter库
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
+    /*下拉刷新框架*/
+    implementation 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
+    //表情库
+    implementation 'com.github.w446108264:AndroidEmoji:1.1'
+    //CameraActivity需要的Rx
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    //PopupWindow
+    implementation 'com.lxj:xpopup:1.8.10'
+    //for androidx.
+    implementation 'com.lxj:xpopup:1.8.10-x'
+    //时间选择
+    implementation 'com.contrarywind:Android-PickerView:4.1.9'
+    //图片选择库
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.4'
+    //SystemBarTint 库
+    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+
+    //动态权限申请库
+    implementation project(':lib_permission')
+    //表情库
+    implementation project(':reclib-testemoticons')
+    //这三个目前不知道是什么库 先放进来 不用的话 再删除
+    implementation files('libs/utdid4all-1.1.5_proguard.jar')
+    implementation files('libs/alicloud-android-sdk-httpdns-1.0.7.jar')
+    implementation files('libs/core-3.2.1.jar')
+
+    //高德地图
+    implementation 'com.amap.api:map2d:latest.integration'
+    implementation 'com.amap.api:search:latest.integration'
+    implementation 'com.amap.api:location:latest.integration'
+    //极光
+    implementation files('libs/jpush-android-3.1.6.jar')
+    implementation files('libs/jcore-android-1.2.5.jar')
+    implementation files('libs/jmessage-android_v2.3.0.jar')
+    //此版本插件仅支持 JPushSDK3.1.5 及以上版本 厂商通道插件
+    implementation 'cn.jiguang.sdk.plugin:xiaomi:3.1.6'
+    implementation 'cn.jiguang.sdk.plugin:huawei:3.1.6'
+    implementation 'cn.jiguang.sdk.plugin:meizu:3.1.6'
+}

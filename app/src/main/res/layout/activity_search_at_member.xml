@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#fff"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48">
+
+        <LinearLayout
+            android:id="@+id/ac_iv_press_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_20"
+                android:src="@mipmap/black_back"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/dp_0_5"
+            android:layout_height="@dimen/dp_20"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dp_7"
+            android:layout_marginTop="@dimen/dp_7"
+            android:background="#D9D9D9" />
+
+        <EditText
+            android:id="@+id/ac_et_search"
+            style="?android:attr/textViewStyle"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginRight="@dimen/dp_8"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableLeft="@mipmap/search1"
+            android:drawablePadding="@dimen/dp_8"
+            android:focusableInTouchMode="true"
+            android:imeActionLabel=""
+            android:imeOptions="actionSearch"
+            android:inputType="textNoSuggestions"
+            android:maxLines="1"
+            android:textColor="#99999999"
+            android:textSize="@dimen/sp_16"/>
+
+        <ImageView
+            android:id="@+id/iv_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dp_14"
+            android:src="@mipmap/clear"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_5"
+        android:background="#E8EDF3"/>
+
+    <TextView
+        android:id="@+id/no_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_51"
+        android:text="当前网络不可用"
+        android:textColor="#999999"
+        android:textSize="@dimen/sp_16"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/ac_tv_search_no_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:layout_marginRight="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_40"
+        android:ellipsize="middle"
+        android:maxLines="1"
+        android:textColor="#999999"
+        android:textSize="@dimen/sp_14"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/lv_searchGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/main_list_divider_line"
+        android:dividerHeight="@dimen/dp_0_5">
+    </ListView>
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ghost_white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout"/>
+
+    <com.hxd.oasynergy.views.SearchBox
+        android:id="@+id/searchBox_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:drawableLeft="@mipmap/ic_contacts_search"
+        android:drawablePadding="10dp"
+        android:paddingLeft="10dp"
+        android:layout_margin="8dp"
+        android:background="@mipmap/public_approval_detail_bg"
+        android:hint="请输入关键字"
+        android:textColorHint="@color/grey_9"
+        android:singleLine="true"
+        android:textSize="@dimen/sp_14" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_contacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="25dp"
+            android:background="@mipmap/public_approval_detail_bg"/>
+
+        <TextView
+            android:id="@+id/tv_contacts_letter_tip"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:background="@drawable/round_textview_bg_contasts"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="30dp"
+            android:visibility="invisible"/>
+
+        <com.hxd.oasynergy.views.SideBar
+            android:id="@+id/sidebar_contacts"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@color/ghost_white"/>
+    </FrameLayout>
+
+</LinearLayout>

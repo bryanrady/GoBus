@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#FFFFFF"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_49"
+        android:background="@color/jmui_jpush_blue">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:onClick="back"
+            android:paddingBottom="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
+            android:paddingTop="@dimen/dp_5"
+            android:scaleType="centerInside"
+            android:src="@mipmap/back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_back"
+            android:text="补充信息"
+            android:textColor="@color/titlebar_text_color"
+            android:textSize="@dimen/sp_18"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_27">
+
+        <com.hxd.gobus.chat.utils.photochoose.SelectableRoundedImageView
+            android:id="@+id/mine_header"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            android:background="@mipmap/user_normal"
+            android:scaleType="centerCrop"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/liner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginRight="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_34">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="昵称"
+            android:textColorHint="#999"
+            android:textSize="@dimen/sp_16"/>
+
+        <jiguang.chat.utils.ClearWriteEditText
+            android:id="@+id/nick_name_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_62"
+            android:background="@null"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:textColor="#616060"
+            android:textColorHint="#999"
+            android:textSize="@dimen/sp_16"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_5"
+            android:layout_below="@id/nick_name_et"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="#D2D2D2"/>
+
+        <FrameLayout
+            android:id="@+id/fr_username_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/nick_name_et"
+            android:layout_centerVertical="true"
+            android:visibility="gone">
+
+        </FrameLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_nickCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/dp_5"
+        android:paddingRight="@dimen/dp_35"
+        android:text="30"
+        android:textColor="#616060"
+        android:textSize="@dimen/sp_14"/>
+
+    <Button
+        android:id="@+id/finish_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginRight="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@color/blue_btn_normal"
+        android:text="完成"
+        android:textColor="@drawable/blue_text_selector"
+        android:textSize="@dimen/sp_16"/>
+
+</LinearLayout>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ghost_white"
+    android:fitsSystemWindows="true">
+
+    <include
+        layout="@layout/toolbar_layout"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_year_end_award_audit"
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@mipmap/public_approval_detail_bg"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="名称:"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/sp_16"/>
+
+                    <TextView
+                        android:id="@+id/tv_year_end_award_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:textColor="@color/grey_6"
+                        android:textSize="@dimen/sp_16"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="年份:"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/sp_16"/>
+
+                    <TextView
+                        android:id="@+id/tv_year_end_award_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:textColor="@color/grey_6"
+                        android:textSize="@dimen/sp_16"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_year_end_award_look"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_30"
+                    android:text="查看奖金明细"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/audit_btn_selector"
+                    android:textSize="@dimen/sp_16" />
+
+            </LinearLayout>
+
+            <com.hxd.gobus.views.CustomListView
+                android:id="@+id/lv_year_end_award"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@mipmap/public_approval_detail_bg"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="8dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:scrollbars="none"/>
+
+            <com.hxd.gobus.views.CustomListView
+                android:id="@+id/auditor_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@mipmap/public_approval_detail_bg"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="8dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:scrollbars="none"/>
+
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/ll_year_end_award_audit"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="7dp"
+        android:paddingTop="7dp"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_year_end_award_audit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/audit_btn_selector"
+            android:text="审 核"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"/>
+    </LinearLayout>
+
+</RelativeLayout>

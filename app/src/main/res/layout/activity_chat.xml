@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hxd.gobus.chat.view.ChatView android:id="@+id/chat_view"
+                            xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fitsSystemWindows="true"
+                            android:orientation="vertical">
+
+
+    <com.hxd.gobus.chat.utils.keyboard.XhsEmoticonsKeyBoard
+        android:id="@+id/ek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar_layout"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.hxd.gobus.chat.view.listview.DropDownListView
+                    android:background="#E8EDF3"
+                    android:id="@+id/lv_chat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@null"
+                    android:fadingEdge="none"
+                    android:fitsSystemWindows="true"
+                    android:listSelector="#00000000"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollingCache="false"
+                    android:smoothScrollbar="true"
+                    android:transcriptMode="normal"/>
+
+                <Button
+                    android:id="@+id/jmui_at_me_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_100"
+                    android:background="#2DD0CF"
+                    android:text="有人@我"
+                    android:textColor="#fff"
+                    android:visibility="gone"/>
+            </FrameLayout>
+        </LinearLayout>
+
+    </com.hxd.gobus.chat.utils.keyboard.XhsEmoticonsKeyBoard>
+
+</com.hxd.gobus.chat.view.ChatView>
+

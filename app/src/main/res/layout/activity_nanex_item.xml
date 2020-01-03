@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/tv_annex_leftIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/dp_10"
+        android:src="@mipmap/ic_launcher"/>
+    <TextView
+        android:id="@+id/tv_annex_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/tv_annex_leftIcon"
+        android:ellipsize="end"
+        android:maxEms="15"
+        android:singleLine="true"
+        android:textSize="@dimen/sp_16"
+        android:text="附件标题"/>
+</RelativeLayout>

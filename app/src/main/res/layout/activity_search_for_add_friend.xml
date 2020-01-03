@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#FFF"
+              android:orientation="vertical">
+
+    <include layout="@layout/menu_title_bar_with_button"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_37"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp_21"
+            android:src="@mipmap/search1"/>
+
+        <EditText
+            android:id="@+id/et_searchUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="搜索用户名"
+            android:textColorHint="#B6BAB9"
+            android:textSize="@dimen/sp_14"/>
+
+        <ImageView
+            android:id="@+id/iv_clear"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dp_14"
+            android:src="@mipmap/clear"/>
+
+        <View
+            android:layout_width="@dimen/dp_0_5"
+            android:layout_height="@dimen/dp_20"
+            android:layout_gravity="center_vertical"
+            android:background="#D9D9D9"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="match_parent"
+                android:background="#FFF"
+                android:gravity="center"
+                android:text="搜索"
+                android:textColor="#2DD0CF"
+                android:textSize="@dimen/sp_14"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_5"
+        android:background="#E8EDF3"/>
+
+    <LinearLayout
+        android:id="@+id/search_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_64"
+            android:background="#fff"
+            android:orientation="horizontal">
+
+            <com.hxd.gobus.chat.utils.photochoose.SelectableRoundedImageView
+                android:id="@+id/search_header"
+                android:layout_width="@dimen/dp_47"
+                android:layout_height="@dimen/dp_47"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_14"
+                android:background="@mipmap/rc_default_portrait"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/search_name"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_14"
+                android:layout_marginRight="@dimen/dp_14"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#2C2C2C"
+                android:textSize="@dimen/sp_16"/>
+
+            <Button
+                android:id="@+id/search_addBtn"
+                android:visibility="gone"
+                android:layout_width="@dimen/dp_65"
+                android:layout_height="@dimen/dp_27"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/dp_14"
+                android:background="@drawable/blue_btn_selector"
+                android:text="加好友"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_5"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:background="#E8EDF3"/>
+
+    </LinearLayout>
+
+</LinearLayout>

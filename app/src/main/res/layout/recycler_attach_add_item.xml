@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="@dimen/dp_70"
+    android:layout_height="@dimen/dp_64"
+    android:layout_marginTop="@dimen/dp_1"
+    android:layout_marginRight="@dimen/dp_5">
+
+    <ImageView
+        android:id="@+id/iv_attach"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_alignParentBottom="true" />
+
+    <ImageView
+        android:id="@+id/iv_delete_attach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/ic_delete_attach"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_attach_shadow"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_17"
+        android:layout_alignParentBottom="true">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:background="@color/black_color"/>
+        <TextView
+            android:id="@+id/tv_attach_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:ems="4"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_10"/>
+    </RelativeLayout>
+
+</RelativeLayout>

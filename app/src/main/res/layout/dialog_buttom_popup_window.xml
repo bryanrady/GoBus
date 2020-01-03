@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <Button
+        android:id="@+id/button_shooting"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:text="拍 摄"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@color/colorAccent"
+        android:background="@drawable/layout_click_item_selector"/>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_0_5"
+        android:background="@color/line_eaeaea" />
+    <Button
+        android:id="@+id/button_from_album"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:text="从手机相册选择"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@color/colorAccent"
+        android:background="@drawable/layout_click_item_selector"/>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_0_5"
+        android:background="@color/line_eaeaea" />
+    <Button
+        android:id="@+id/button_from_file"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:text="从手机文件选择"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@color/colorAccent"
+        android:background="@drawable/layout_click_item_selector"/>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_0_5"
+        android:background="@color/line_eaeaea" />
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:text="取 消"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@color/grey_6"
+        android:background="@drawable/layout_click_item_selector"/>
+
+</LinearLayout>

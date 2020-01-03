@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/capture_container"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white">
+
+    <SurfaceView
+        android:id="@+id/capture_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    <!-- 扫描框上面的布局 -->
+    <RelativeLayout
+        android:id="@+id/top_mask"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_150"
+        android:layout_alignParentTop="true"
+        android:background="@color/scan_bg">
+
+        <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dp_45">
+
+            <ImageView
+                android:id="@+id/authorize_return"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:paddingLeft="@dimen/dp_12"
+                android:paddingRight="@dimen/dp_20"
+                android:src="@mipmap/back"
+                />
+
+            <TextView
+                android:id="@+id/common_title_TV_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_45"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="返回"
+                android:textColor="#fff"
+                android:textSize="@dimen/sp_14"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="扫一扫"
+                android:textColor="#fff"
+                android:textSize="@dimen/sp_16"/>
+
+            <TextView
+                android:id="@+id/qrcode_g_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:paddingRight="@dimen/dp_15"
+                android:gravity="center_vertical"
+                android:text="相册"
+                android:textColor="#fff"
+                android:textSize="@dimen/sp_14"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_scan_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_bar"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="哈哈"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_14"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+    <!-- 扫描框底部的布局 -->
+    <RelativeLayout
+        android:id="@+id/bottom_mask"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200"
+        android:layout_alignParentBottom="true"
+        android:background="@color/scan_bg"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_16"
+        >
+
+        <TextView
+            android:id="@+id/scan_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingBottom="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_20"
+            android:text="@string/scan_qrcode_hint"
+            android:textColor="#6EF8F8"
+            android:textSize="@dimen/sp_14"
+            />
+
+        <TextView
+            android:id="@+id/iv_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/scan_hint"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/shouquan_qrcode_s_flashgun"
+            android:clickable="true"/>
+
+    </RelativeLayout>
+    <!-- 扫描框中间的布局 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_mask"
+        android:layout_below="@id/top_mask">
+
+        <ImageView
+            android:id="@+id/left_mask"
+            android:layout_width="@dimen/dp_34"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@color/scan_bg"
+            android:contentDescription="@string/app_name"/>
+
+        <ImageView
+            android:id="@+id/right_mask"
+            android:layout_width="@dimen/dp_34"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/scan_bg"/>
+
+        <RelativeLayout
+            android:id="@+id/capture_crop_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@id/right_mask"
+            android:layout_toRightOf="@id/left_mask"
+            android:background="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/capture_scan_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_margin="@dimen/dp_5"
+                android:background="@mipmap/scanning_line"/>
+
+            <com.hxd.gobus.chat.view.ZiXingView
+                android:id="@+id/scan_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

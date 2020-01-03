@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_filter_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:orientation="horizontal"
+        android:background="@color/ghost_white">
+        <RelativeLayout
+            android:id="@+id/rl_vehicle_record_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_vehicle_record_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_centerVertical="true"
+                android:text="筛选"
+                android:textColor="@color/grey_6"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12"/>
+            <ImageView
+                android:id="@+id/iv_vehicle_record_filter"
+                android:layout_toRightOf="@+id/tv_vehicle_record_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:background="@mipmap/ic_filter_arrow_down"/>
+        </RelativeLayout>
+        <com.hxd.gobus.views.SearchBox
+            android:id="@+id/vehicle_record_searchBox"
+            android:layout_toLeftOf="@+id/btn_vehicle_record_search"
+            android:layout_toRightOf="@+id/rl_vehicle_record_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/public_approval_detail_bg"
+            android:drawableLeft="@mipmap/ic_contacts_search"
+            android:paddingLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:hint="车牌号/用车事由"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp_12" />
+        <Button
+            android:id="@+id/btn_vehicle_record_search"
+            android:layout_alignParentRight="true"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_30"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:text="搜 索"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            android:background="@drawable/btn_frame_filling_green"/>
+    </RelativeLayout>
+
+    <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+        android:id="@+id/swipeToLoadLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/refresh_bg_color">
+        <include
+            android:id="@id/swipe_refresh_header"
+            layout="@layout/layout_refresh_header" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/swipe_target"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            android:fadeScrollbars="true"
+            android:scrollbars="vertical" />
+        <include
+            android:id="@id/swipe_load_more_footer"
+            layout="@layout/layout_refresh_footer" />
+    </com.aspsine.swipetoloadlayout.SwipeToLoadLayout>
+
+</LinearLayout>
