@@ -6,14 +6,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Toast;
 
 import com.bryanrady.lib_permission.annotation.NeedPermission;
@@ -33,6 +37,7 @@ import com.hxd.gobus.utils.LeakedUtils;
 import com.hxd.gobus.utils.LogUtils;
 import com.hxd.gobus.utils.SharePreferenceManager;
 import com.hxd.gobus.utils.StatusBarUtils;
+import com.hxd.gobus.views.ButtonDialog;
 import com.hxd.gobus.views.CommonDialog;
 import com.hxd.gobus.views.SweetAlert.SweetAlertDialog;
 

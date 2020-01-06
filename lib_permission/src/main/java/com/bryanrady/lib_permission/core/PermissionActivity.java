@@ -89,12 +89,12 @@ public class PermissionActivity extends Activity {
             if (permissions.length != grantResults.length) {
                 return;
             }
-            List<String> deinedList = new ArrayList<>();
-            for (int i = 0; i < grantResults.length; i++) {
-                if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
-                    deinedList.add(permissions[i]);
-                }
-            }
+//            List<String> deinedList = new ArrayList<>();
+//            for (int i = 0; i < grantResults.length; i++) {
+//                if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
+//                    deinedList.add(permissions[i]);
+//                }
+//            }
             mIPermission.denied();
             finish();
             return;
