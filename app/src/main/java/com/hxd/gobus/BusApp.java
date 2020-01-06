@@ -20,6 +20,7 @@ import com.hxd.gobus.di.components.DaggerAppComponent;
 import com.hxd.gobus.greendao.DaoMaster;
 import com.hxd.gobus.greendao.DaoSession;
 import com.hxd.gobus.service.NotificationClickEventReceiver;
+import com.hxd.gobus.utils.CrashHandler;
 import com.hxd.gobus.utils.LogUtils;
 import com.hxd.gobus.utils.SharePreferenceManager;
 import com.squareup.leakcanary.LeakCanary;
@@ -64,7 +65,7 @@ public class BusApp extends Application implements HasActivityInjector {
                 .application(this)
                 .build()
                 .inject(this);
-    //    mRefWatcher = setupLeakCanary();
+        mRefWatcher = setupLeakCanary();
     //    CrashHandler.getInstance().init(this);
         initRetrofit();
         initGreenDao();

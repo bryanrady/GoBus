@@ -43,7 +43,6 @@ public class AmapLocationUtil implements GeocodeSearch.OnGeocodeSearchListener {
     private GeocodeSearch geocoderSearch;
     private AMapLocationClient mlocationClient;
     private AMapLocationClientOption mOption = null;
-    private Context mContext;
     private String address;
     private double lat;
     private double lng;
@@ -53,8 +52,7 @@ public class AmapLocationUtil implements GeocodeSearch.OnGeocodeSearchListener {
     private boolean isLocationSuccess = false;   //返回定位是否成功
 
     public void init(Context context){
-        mContext = context;
-        mlocationClient = new AMapLocationClient(context);
+        mlocationClient = new AMapLocationClient(context.getApplicationContext());
         //设置定位监听
         mlocationClient.setLocationListener(locationListener);
         //初始化定位参数
@@ -63,7 +61,7 @@ public class AmapLocationUtil implements GeocodeSearch.OnGeocodeSearchListener {
         mlocationClient.setLocationOption(mOption);
 
         //逆地理编码监听
-        geocoderSearch = new GeocodeSearch(mContext);
+        geocoderSearch = new GeocodeSearch(context.getApplicationContext());
         geocoderSearch.setOnGeocodeSearchListener(this);
 
         stopLocation();

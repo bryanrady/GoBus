@@ -48,7 +48,8 @@ import butterknife.OnClick;
  * @date: 2019/8/15 19:34
  */
 
-public class VehicleLocationDetailActivity extends BaseActivity<VehicleLocationDetailPresenter> implements IVehicleLocationDetailContract.View {
+public class VehicleLocationDetailActivity extends BaseActivity<VehicleLocationDetailPresenter> implements
+        IVehicleLocationDetailContract.View, AMap.OnMapTouchListener {
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
@@ -147,16 +148,16 @@ public class VehicleLocationDetailActivity extends BaseActivity<VehicleLocationD
             mUiSettings.setLogoPosition(AMapOptions.LOGO_POSITION_BOTTOM_RIGHT);
             mUiSettings.setZoomControlsEnabled(false);
 
-            mAMap.setOnMapTouchListener(new AMap.OnMapTouchListener() {
-                @Override
-                public void onTouch(MotionEvent motionEvent) {
-                    if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                        mScrollView.requestDisallowInterceptTouchEvent(false);
-                    } else {
-                        mScrollView.requestDisallowInterceptTouchEvent(true);
-                    }
-                }
-            });
+            mAMap.setOnMapTouchListener(this);
+        }
+    }
+
+    @Override
+    public void onTouch(MotionEvent motionEvent) {
+        if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+            mScrollView.requestDisallowInterceptTouchEvent(false);
+        } else {
+            mScrollView.requestDisallowInterceptTouchEvent(true);
         }
     }
 

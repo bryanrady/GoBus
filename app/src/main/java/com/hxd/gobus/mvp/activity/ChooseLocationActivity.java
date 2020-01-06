@@ -1,6 +1,5 @@
 package com.hxd.gobus.mvp.activity;
 
-import android.Manifest;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -12,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -51,7 +49,8 @@ import butterknife.OnClick;
  * @author: wangqingbin
  * @date: 2019/9/25 11:32
  */
-public class ChooseLocationActivity extends BaseActivity {
+public class ChooseLocationActivity extends BaseActivity implements AMap.OnCameraChangeListener, GeocodeSearch.OnGeocodeSearchListener
+        ,AMap.OnMapClickListener,AMapLocationListener,AddressAdapter.OnItemClickListener{
 
     @BindView(R.id.iv_location_back)
     ImageView iv_location_back;
@@ -137,10 +136,8 @@ public class ChooseLocationActivity extends BaseActivity {
     private AMapLocationClient mLocationClient = null;
     private AMapLocationClientOption mLocationOption = new AMapLocationClientOption();
     private AMapLocation mLocation;
-    private AMapLocationListener mAMapLocationListener;
 
     private OnPoiSearchListener mOnPoiSearchListener;
-    private GeocodeSearch.OnGeocodeSearchListener mOnGeocodeSearchListener;
 
     private ObjectAnimator mTransAnimator;//地图中心标志动态
     private static final int REQUEST_CODE_SEARCH = 1001;
@@ -245,106 +242,16 @@ public class ChooseLocationActivity extends BaseActivity {
 
     private void initListener() {
         //监测地图画面的移动
-        mAMap.setOnCameraChangeListener(new AMap.OnCameraChangeListener() {
-            @Override
-            public void onCameraChangeFinish(CameraPosition cameraPosition) {
-                if (null != mLocation && null != cameraPosition && mIsSearchData) {
-                    iv_current_location.setImageResource(R.mipmap.ic_location_gps_black);
-                    mZoom = cameraPosition.zoom;
-                    if (null != mSelectByListMarker) {
-                        mSelectByListMarker.setVisible(false);
-                    }
-                    getAddressInfoByLatLong(cameraPosition.target.latitude, cameraPosition.target.longitude);
-                    startTransAnimator();
-//                    doSearchQuery(true, "", location.getCity(), new LatLonPoint(cameraPosition.target.latitude, cameraPosition.target.longitude));
-                }
-                if (!mIsSearchData) {
-                    mIsSearchData = true;
-                }
-            }
-
-            @Override
-            public void onCameraChange(CameraPosition cameraPosition) {
-
-            }
-        });
+        mAMap.setOnCameraChangeListener(this);
 
         //设置触摸地图监听器
-        mAMap.setOnMapClickListener(new AMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
-                mIsSearchData = true;
-            }
-        });
+        mAMap.setOnMapClickListener(this);
 
         //Poi搜索监听器
         mOnPoiSearchListener = new OnPoiSearchListener();
 
-        //逆地址搜索监听器
-        mOnGeocodeSearchListener = new GeocodeSearch.OnGeocodeSearchListener() {
-            @Override
-            public void onRegeocodeSearched(RegeocodeResult regeocodeResult, int i) {
-                if (i == 1000) {
-                    if (regeocodeResult != null) {
-                        mUserSelectPoiItem = DataConversionUtils.changeToPoiItem(regeocodeResult);
-                        if (null != mList) {
-                            mList.clear();
-                        }
-                        mList.addAll(regeocodeResult.getRegeocodeAddress().getPois());
-                        if (null != mUserSelectPoiItem) {
-                            mList.add(0, mUserSelectPoiItem);
-                        }
-                        mAddressAdapter.setList(mList);
-                        mAddressAdapter.setSelectPosition(0);
-                        mRecyclerView.smoothScrollToPosition(0);
-                    }
-                }
-
-            }
-
-            @Override
-            public void onGeocodeSearched(GeocodeResult geocodeResult, int i) {
-
-            }
-        };
-
-        //gps定位监听器
-        mAMapLocationListener = new AMapLocationListener() {
-            @Override
-            public void onLocationChanged(AMapLocation location) {
-                try {
-                    if (null != location) {
-                        stopLocation();
-                        if (location.getErrorCode() == 0) {//可在其中解析amapLocation获取相应内容。
-                            mLocation = location;
-                            doWhenLocationSuccess();
-                        } else {
-                            //定位失败时，可通过ErrCode（错误码）信息来确定失败的原因，errInfo是错误信息，详见错误码表。
-                            Log.e("AmapError", "location Error, ErrCode:"
-                                    + location.getErrorCode() + ", errInfo:"
-                                    + location.getErrorInfo());
-                        }
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        };
-
         //recycleview列表监听器
-        mAddressAdapter.setOnItemClickListener(new AddressAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                try {
-                    mIsSearchData = false;
-                    iv_current_location.setImageResource(R.mipmap.ic_location_gps_black);
-                    moveMapCamera(mList.get(position).getLatLonPoint().getLatitude(), mList.get(position).getLatLonPoint().getLongitude());
-                    refreshSelectByListMark(mList.get(position).getLatLonPoint().getLatitude(), mList.get(position).getLatLonPoint().getLongitude());
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        });
+        mAddressAdapter.setOnItemClickListener(this);
 
     }
 
@@ -358,7 +265,7 @@ public class ChooseLocationActivity extends BaseActivity {
             //设置定位参数
             mLocationClient.setLocationOption(getDefaultOption());
             // 设置定位监听
-            mLocationClient.setLocationListener(mAMapLocationListener);
+            mLocationClient.setLocationListener(this);
         }
     }
 
@@ -537,7 +444,91 @@ public class ChooseLocationActivity extends BaseActivity {
         */
         RegeocodeQuery query = new RegeocodeQuery(new LatLonPoint(latitude, longitude), 3000, GeocodeSearch.AMAP);
         geocodeSearch.getFromLocationAsyn(query);
-        geocodeSearch.setOnGeocodeSearchListener(mOnGeocodeSearchListener);
+        geocodeSearch.setOnGeocodeSearchListener(this);
+    }
+
+    @Override
+    public void onCameraChangeFinish(CameraPosition cameraPosition) {
+        if (null != mLocation && null != cameraPosition && mIsSearchData) {
+            iv_current_location.setImageResource(R.mipmap.ic_location_gps_black);
+            mZoom = cameraPosition.zoom;
+            if (null != mSelectByListMarker) {
+                mSelectByListMarker.setVisible(false);
+            }
+            getAddressInfoByLatLong(cameraPosition.target.latitude, cameraPosition.target.longitude);
+            startTransAnimator();
+//                    doSearchQuery(true, "", location.getCity(), new LatLonPoint(cameraPosition.target.latitude, cameraPosition.target.longitude));
+        }
+        if (!mIsSearchData) {
+            mIsSearchData = true;
+        }
+    }
+
+    @Override
+    public void onCameraChange(CameraPosition cameraPosition) {
+
+    }
+
+    @Override
+    public void onRegeocodeSearched(RegeocodeResult regeocodeResult, int i) {
+        if (i == 1000) {
+            if (regeocodeResult != null) {
+                mUserSelectPoiItem = DataConversionUtils.changeToPoiItem(regeocodeResult);
+                if (null != mList) {
+                    mList.clear();
+                }
+                mList.addAll(regeocodeResult.getRegeocodeAddress().getPois());
+                if (null != mUserSelectPoiItem) {
+                    mList.add(0, mUserSelectPoiItem);
+                }
+                mAddressAdapter.setList(mList);
+                mAddressAdapter.setSelectPosition(0);
+                mRecyclerView.smoothScrollToPosition(0);
+            }
+        }
+
+    }
+
+    @Override
+    public void onGeocodeSearched(GeocodeResult geocodeResult, int i) {
+
+    }
+
+    @Override
+    public void onMapClick(LatLng latLng) {
+        mIsSearchData = true;
+    }
+
+    @Override
+    public void onLocationChanged(AMapLocation location) {
+        try {
+            if (null != location) {
+                stopLocation();
+                if (location.getErrorCode() == 0) {//可在其中解析amapLocation获取相应内容。
+                    mLocation = location;
+                    doWhenLocationSuccess();
+                } else {
+                    //定位失败时，可通过ErrCode（错误码）信息来确定失败的原因，errInfo是错误信息，详见错误码表。
+                    Log.e("AmapError", "location Error, ErrCode:"
+                            + location.getErrorCode() + ", errInfo:"
+                            + location.getErrorInfo());
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        try {
+            mIsSearchData = false;
+            iv_current_location.setImageResource(R.mipmap.ic_location_gps_black);
+            moveMapCamera(mList.get(position).getLatLonPoint().getLatitude(), mList.get(position).getLatLonPoint().getLongitude());
+            refreshSelectByListMark(mList.get(position).getLatLonPoint().getLatitude(), mList.get(position).getLatLonPoint().getLongitude());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     class OnPoiSearchListener implements PoiSearch.OnPoiSearchListener {

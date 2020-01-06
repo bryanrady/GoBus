@@ -23,7 +23,7 @@ public class DialogListAdapter2 extends ArrayAdapter<StringInfo>{
     private LayoutInflater inflater;
     private Context mContext;
     private List<StringInfo> list;
-    private static HodlerView mHodlerView;
+    private HodlerView mHodlerView;
 
     // 用来控制CheckBox的选中状况
     private static HashMap<Integer, Boolean> isSelected;
@@ -75,11 +75,11 @@ public class DialogListAdapter2 extends ArrayAdapter<StringInfo>{
         return convertView;
     }
 
-    public static HodlerView getHolderView(){
+    public HodlerView getHolderView(){
         return mHodlerView;
     }
 
-    public static class HodlerView {
+    public class HodlerView {
 
         public CheckBox dialog_checkBox;
 

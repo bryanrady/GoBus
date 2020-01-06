@@ -7,7 +7,7 @@ public class Constant {
 
     //http://222.85.147.20:5678/login.jsp
     /** 测试环境 URL*/
-//    public static final String ROOT_URL="http://222.85.144.82:2211";
+    public static final String ROOT_URL="http://222.85.144.82:2211";
     /** 董丽伟 测试环境 URL*/
 //    public static final String ROOT_URL="http://192.168.19.99:8080";
     /** 左康梅 测试环境 URL*/
@@ -17,7 +17,7 @@ public class Constant {
     /** 胡工 测试环境 URL*/
 //    public static final String ROOT_URL = "http://192.168.19.66:8080";
     /** 刘村 开发环境 URL*/
-    public static final String ROOT_URL="http://192.168.19.48:9999";
+//    public static final String ROOT_URL="http://192.168.19.48:9999";
     /** 正式环境 URL*/
 //    public static final String ROOT_URL = "http://222.85.144.82:8058";
 

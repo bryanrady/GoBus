@@ -145,23 +145,24 @@ public class ChooseDialog2 extends Dialog {
                 View listItem = dialogListAdapter.getView(0, null, listView);
                 listItem.measure(0, 0);
                 listItem.getMeasuredHeight();
-            }
 
-            if(mCheckedList != null){
-                DialogListAdapter2.HodlerView hodlerView = DialogListAdapter2.getHolderView();
-                hodlerView.dialog_checkBox.toggle();
-                for(int i=0;i<mCheckedList.size();i++){
-                    for(int j = 0;j < list.size(); j++) {
-                        if(mCheckedList.get(i) == list.get(j).getId()){
-                            dialogListAdapter.getIsSelected().put(j,true);
-                            dialogListAdapter.getIsSelected().put(j, hodlerView.dialog_checkBox.isChecked());
+                if(mCheckedList != null){
+                    DialogListAdapter2.HodlerView hodlerView = dialogListAdapter.getHolderView();
+                    hodlerView.dialog_checkBox.toggle();
+                    for(int i=0;i<mCheckedList.size();i++){
+                        for(int j = 0;j < list.size(); j++) {
+                            if(mCheckedList.get(i) == list.get(j).getId()){
+                                dialogListAdapter.getIsSelected().put(j,true);
+                                dialogListAdapter.getIsSelected().put(j, hodlerView.dialog_checkBox.isChecked());
+                            }
                         }
                     }
                 }
+
+                listView.setAdapter(dialogListAdapter);
+                dialogListAdapter.notifyDataSetChanged();
             }
 
-            listView.setAdapter(dialogListAdapter);
-            dialogListAdapter.notifyDataSetChanged();
             dialog.setContentView(layout);
             return dialog;
         }
